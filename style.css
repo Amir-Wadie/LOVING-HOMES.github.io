@@ -1,0 +1,727 @@
+/* ========================================= CONFIGURATION & RESET========================================= */
+* { margin: 0; 
+    padding: 0; 
+    
+    box-sizing: border-box;
+ }
+
+:root {
+    /* Colors */
+    --clr-orange: #FA6A1F;
+    --clr-orange-dark: #C26B41;
+    --clr-header-bg: #EEE0D9;
+    --clr-text: #000000;
+    /* Fonts & Layout */
+    --font-primary: 'Baloo 2', cursive;
+    --layout-max-width: 1440px;
+    --header-h: 71px;
+}
+
+
+
+body {
+    font-family: var(--font-primary);
+    background-color: #fff;
+    color: var(--clr-text);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: var(--layout-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+html {
+    scroll-behavior: smooth; /* This enables the smooth scrolling effect */
+}
+
+/* =========================================  HEADER STYLES ========================================= */
+.header {
+    background-color: var(--clr-header-bg);
+    height: var(--header-h);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+/* Logo */
+.brand-logo, .logo-img {
+    height: 80%; /* Fits inside the 71px header */
+    width: auto;
+}
+
+/* Navigation List */
+.nav-list {
+    display: flex;
+    gap: 50px;
+}
+
+.nav-link {
+    font-weight: 800;
+    font-size: 1.25rem;
+    transition: color 0.3s;
+}
+
+.nav-link:hover{
+    color: var(--clr-orange);
+}
+
+/* Active State Style */
+.nav-link.active {
+    color: var(--primary-orange) !important; /* Force color */
+    transition: color 0.3s ease;
+}
+
+/* =============================== MOBILE TOGGLE LOGIC (Smooth Animation)================================= */
+.mobile-toggle {
+    display: none; /* Hidden on Desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--clr-text);
+    z-index: 1001;
+    
+    /* Important for centering the absolute icons */
+    position: relative; 
+    width: 40px; 
+    height: 40px;
+}
+
+/* Style for BOTH icons to sit on top of each other */
+.mobile-toggle .iconify {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 2.2rem;
+    
+    /* Center the icon perfectly and prepare transitions */
+    transform: translate(-50%, -50%) rotate(0deg);
+    transition: all 0.4s ease-in-out; /* This makes it SMOOTH */
+}
+
+/* --- Default State (Menu Closed) --- */
+/* Hamburger is visible */
+.icon-hamburger {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+/* Close (X) is hidden and rotated slightly */
+.icon-close {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(-180deg);
+}
+
+/* --- Active State (Menu Open) --- */
+/* Hide Hamburger (Spin it out) */
+.mobile-toggle.active .icon-hamburger {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(180deg);
+}
+
+/* Show Close (Spin it in) */
+.mobile-toggle.active .icon-close {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+
+/* ========================================= HERO SECTION ========================================= */
+.hero {
+    padding: 60px 0;
+    min-height: calc(100vh - var(--header-h));
+    display: flex;
+    align-items: center;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--clr-orange);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-desc {
+    font-size: 1.1rem;
+    margin-bottom: 35px;
+    max-width: 90%;
+    font-weight: 500;
+}
+
+/* Buttons */
+.hero-actions { display: flex; gap: 20px; }
+
+.btn {
+    padding: 12px 40px;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: transform 0.2s;
+    background-color: var(--clr-orange-dark);
+    color: #fff;
+}
+.btn:hover { transform: scale(1.05); }
+
+/* Hero Image */
+.hero-media { display: flex; justify-content: center; }
+.hero-img { width: 100%; max-width: 550px; height: auto; }
+
+/* ========================================= RESPONSIVE (TABLET & MOBILE) ========================================= */
+@media (max-width: 1024px) {
+    .nav-list { gap: 25px; }
+    .hero-title { font-size: 3rem; }
+}
+
+@media (max-width:  1024px) {
+    .mobile-toggle { display: block; }
+
+    /* Mobile Menu Drawer */
+    .nav-container {
+        position: fixed;
+        top: var(--header-h);
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - var(--header-h));
+        background-color: var(--clr-header-bg);
+        transition: left 0.3s ease;
+        padding-top: 50px;
+    }
+
+    .nav-container.active { left: 0; }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    /* Stack Hero Section */
+    .hero-grid {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-media { order: 1; margin-bottom: 30px; }
+    .hero-text { order: 2; }
+    
+    .hero-title { font-size: 2.5rem; }
+    .hero-desc { margin: 0 auto 30px; }
+    .hero-actions { justify-content: center; }
+}
+/* ========================================= ABOUT US SECTION STYLES ========================================= */
+.about-section {
+    padding: 100px 0;
+    background-color: #E6E6E6; /* Light Gray background per design */
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Split 50/50 */
+    align-items: center;
+    gap: 50px;
+}
+
+/* --- Image Styling --- */
+.about-image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.about-img {
+    width: 90%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* --- Text Styling --- */
+.about-content {
+    padding-left: 20px;
+}
+
+.section-title {
+    font-size: 3rem;
+    color: var(--clr-orange);
+    font-weight: 800;
+    margin-bottom: 25px;
+}
+
+.about-desc {
+    font-size: 1.1rem;
+    color: #1a1a1a;
+    line-height: 1.8;
+    font-weight: 500;
+    text-align: justify; /* Makes text look clean like a block */
+}
+
+/* ========================================= RESPONSIVE (About Us) ========================================= */
+@media (max-width: 1024px) {
+    .about-bg-shape {
+        height: 350px;
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr; /* Stack vertically */
+        text-align: center;
+        gap: 40px;
+    }
+
+    .about-content {
+        padding-left: 0;
+    }
+    
+    .about-desc {
+        text-align: center; /* Center text on mobile */
+    }
+
+    /* Reduce background shape size for mobile */
+    .about-bg-shape {
+        height: 300px;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
+
+
+/* ========================================= FACILITIES SECTION STYLES ========================================= */
+.facilities-section {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+.text-center {
+    text-align: center;
+    margin-bottom: 50px; /* Space below title */
+}
+
+/* Grid Layout */
+.facilities-grid {
+    display: grid;
+    /* Desktop: 3 Columns */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 40px;
+    justify-items: center; /* Centers cards in their grid cells */
+}
+
+/* --- Card Styling --- */
+.facility-card {
+    /* Exact Dimensions requested */
+    width: 252px;
+    height: 318px;
+    
+    /* Background Color: #FA6A1F with 65% Opacity */
+    background-color: rgba(250, 106, 31, 0.65);
+    
+    border-radius: 20px;
+    padding: 15px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.facility-card:hover {
+    transform: translateY(-10px); /* Slight lift effect on hover */
+}
+
+/* --- Image Styling --- */
+.facility-img {
+    /* Exact Dimensions requested */
+    width: 185.64px;
+    height: 124.96px;
+    
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    margin-top: 15px; /* Adjust vertical spacing */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* --- Content inside Card --- */
+.card-content h3 {
+    font-size: 0.9rem; /* Small but readable */
+    color: #fff;       /* White text against orange bg */
+    font-weight: 800;
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.card-content p {
+    font-size: 0.75rem;
+    color: #fff;
+    font-weight: 500;
+    line-height: 1.4;
+    opacity: 0.9;
+}
+
+/* --- Special Contact Button inside Card --- */
+.btn-mini-contact {
+    display: inline-block;
+    margin-top: 4px;
+    width: 95px;
+    height: 20px;
+    background-color: #A05A3E;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    line-height: 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.btn-mini-contact:hover {
+    background-color: #fff;
+    color: #A05A3E;
+    transform: scale(1.05);
+}
+/* ========================================= RESPONSIVE (Facilities) ========================================= */
+
+/* Tablet (iPad size - 2 Columns) */
+@media (max-width: 1024px) {
+    .facilities-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 600px; /* Limit width to keep cards centered */
+        margin: 0 auto;
+    }
+}
+
+/* Mobile (Phone size - 1 Column) */
+@media (max-width: 650px) {
+    .facilities-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========================================= VARIABLES & RESET========================================= */
+   :root {
+    /* Brand Colors */
+    --primary-orange: #FA6A1F;
+    --bg-transparent: rgba(250, 106, 31, 0.40); /* 40% Opacity */
+    
+    /* Text Colors */
+    --text-dark: #1a1a1a;
+    --text-light: #ffffff;
+    --placeholder-color: #BC8C74; /* Muted orange/brown */
+
+    /* Typography */
+    --font-main: 'Baloo 2', cursive;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: #fff;
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+ 
+/* ========================================= PACKAGES SECTION STYLES ========================================= */
+.packages-section {
+    padding: 60px 0;
+    background-color: #E6E6E6; /* Light Gray background per design */
+}
+
+/* Grid Layout */
+.packages-grid {
+    display: grid;
+    /* Desktop: 4 Columns */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 30px;
+    justify-items: center;
+}
+
+/* --- Card Styling --- */
+.package-card {
+    /* Exact Dimensions Requested */
+    width: 319px;
+    height: 397px;
+    
+    /* Using the brand orange with transparency similar to Facilities */
+    background-color: rgba(250, 106, 31, 0.75); 
+    
+    border-radius: 20px;
+    padding: 20px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.package-card:hover {
+    transform: translateY(-10px);
+}
+
+/* --- Image Styling --- */
+.package-img {
+    /* Exact Dimensions Requested */
+    width: 277px;
+    height: 156px;
+    
+    object-fit: cover; /* Ensures image fills dimensions without distortion */
+    border-radius: 12px;
+    margin-bottom: 25px; /* Space between image and text */
+    margin-top: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* --- Content Styling --- */
+.package-content h3 {
+    font-size: 1.1rem;
+    color: #fff;
+    font-weight: 800;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+.package-content p {
+    font-size: 0.9rem;
+    color: #fff;
+    font-weight: 500;
+    line-height: 1.5;
+    opacity: 0.95;
+    padding: 0 10px; /* Internal padding for text */
+}
+
+/* ========================================= RESPONSIVE (PACKAGES) ========================================= */
+
+/* Tablet (iPad size - 2 Columns) */
+@media (max-width: 1200px) {
+    .packages-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2x2 Layout */
+        max-width: 700px;
+        margin: 0 auto;
+        gap: 40px;
+    }
+}
+
+
+/* Mobile (Phone size - 1 Column) */
+@media (max-width: 500px) {
+    .packages-grid {
+        grid-template-columns: 1fr; /* Stack Vertically */
+    }
+}
+
+/* ========================================= CONTACT SECTION STYLES  ========================================= */
+.contact-section {
+    padding: 60px 0;
+    background-color: #fff;
+    min-height: 80vh; /* Ensures section takes up good space */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- Form Card --- */
+.contact-card {
+    /* The specific orange with 40% opacity as requested */
+    background-color: rgba(250, 106, 31, 0.40);
+    
+    width: 100%;
+    max-width: 900px; /* Max width for desktop */
+    border-radius: 30px;
+    padding: 50px;
+    margin: 0 auto; /* Center the card */
+    box-shadow: 0 10px 30px rgba(250, 106, 31, 0.15);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Form Grid System */
+.form-row {
+    width: 100%;
+}
+
+/* Split Row (First Name / Last Name) */
+.split-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* --- Input Fields Styling --- */
+input, textarea {
+    width: 100%;
+    background-color: transparent;
+    border: 3px solid #fff; /* Thick white border */
+    border-radius: 50px;    /* Pill shape */
+    padding: 15px 25px;
+    
+    font-family: var(--font-primary);
+    font-size: 1.1rem;
+    color: #333;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Textarea specific */
+textarea {
+    border-radius: 30px; /* Slightly less rounded corners for large box */
+    height: 180px;
+    resize: none;
+}
+
+/* Placeholder Styling */
+::placeholder {
+    color: #BC8C74; /* Brownish placeholder color matching design */
+    opacity: 0.8;
+    font-weight: 500;
+}
+
+/* Focus State */
+input:focus, textarea:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-color: #fff;
+}
+
+/* --- Submit Button --- */
+.btn-submit {
+    background-color: #C26B41; /* Darker Orange/Brown */
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 12px 50px;
+    border-radius: 50px;
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    align-self: center; /* Center button in form */
+    margin-top: 10px;
+    transition: transform 0.2s ease;
+}
+
+.btn-submit:hover {
+    transform: scale(1.05);
+    background-color: #FA6A1F;
+}
+
+/* ========================================= FOOTER STYLES ========================================= */
+.site-footer {
+    background-color: #FDBCA0; /* Peach Footer Background */
+    padding: 60px 0 0 0;
+    margin-top: 50px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr; /* Desktop layout */
+    gap: 50px;
+    padding-bottom: 40px;
+}
+
+/* Headings */
+.footer-col h3 {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+/* Descriptions & Links */
+.footer-desc, .footer-col a, .footer-col span {
+    color: #222;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.footer-col ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Icons styling */
+.contact-item, .social-links li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.footer-icon {
+    font-size: 1.3rem;
+    color: #fff;
+}
+
+/* Social Icons (White Box) */
+.social-icon {
+    background-color: #fff;
+    color: #FDBCA0; /* Icon color matches footer bg */
+    border-radius: 4px;
+    padding: 3px;
+    font-size: 1.2rem;
+    width: 24px;
+    height: 24px;
+}
+
+/* Copyright Bar */
+.copyright-bar {
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* ========================================= RESPONSIVE (CONTACT & FOOTER) ========================================= */
+@media (max-width: 768px) {
+    /* Form becomes 1 column */
+    .split-row {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-card {
+        padding: 30px 20px;
+    }
+
+    /* Footer stacks vertically */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}

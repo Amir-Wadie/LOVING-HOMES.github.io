@@ -33,8 +33,15 @@ body {
     width: 100%;
 }
 
-a { text-decoration: none; color: inherit; }
-ul { list-style: none; }
+a { 
+    
+    text-decoration: none; color: inherit;
+ }
+ul { 
+    
+    list-style: none; 
+
+}
 
 html {
     scroll-behavior: smooth; /* This enables the smooth scrolling effect */
@@ -309,7 +316,6 @@ html {
     }
 }
 
-
 /* ========================================= FACILITIES SECTION STYLES ========================================= */
 .facilities-section {
     padding: 60px 0;
@@ -452,8 +458,7 @@ body {
     color: var(--text-dark);
     overflow-x: hidden;
 }
- 
-/* ========================================= PACKAGES SECTION STYLES ========================================= */
+ /* ========================================= PACKAGES SECTION STYLES ========================================= */
 .packages-section {
     padding: 60px 0;
     background-color: #E6E6E6; /* Light Gray background per design */
@@ -725,3 +730,31 @@ input:focus, textarea:focus {
         gap: 40px;
     }
 }
+
+#scrollToTopBtn{
+
+display: none;
+position:fixed;
+bottom: 8px;
+right:8px;
+z-index:1000;
+border: none;
+outline: none;
+background-color: #FA6A1F;
+color: white;
+cursor: pointer;
+padding:12px;
+border-radius: 4px;
+font-size: 18px;
+box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+transition: all 0.3s ease-in-out;
+}
+
+#scrollToTopBtn:hover {
+
+background-color: #1a1a1a;
+transform: translateY();
+box-shadow: 0 6px 15px rgba(250, 106, 31, 0.40);
+
+}
+

@@ -1,34 +1,117 @@
-                                            <--Loving Homes-->
+                                                <--Head--> 
+title Loving Homes 
 
+keywords
+Loving Homes,luxury dog hotel Hong Kong, pet hotel Hong Kong,
+premium dog boarding, safe dog accommodation, dog grooming and spa services, 
+underfloor heated dog rooms, dog chauffeur service, indoor and outdoor dog play areas, 24-hour veterinary care,
+personalized dog care packages, premium dog services, classic dog package, dog daycare Hong Kong, professional dog care,
+comfortable dog rooms, dog activities and daily walks, modern pet facilities Hong Kong
+
+description
+Loving Homes safe and comfortable hotel for your dog, equipped with everything your dog needs.
+A Place offering all the Facilities and all packages
+you need for your dog's care.
+
+URLS
+
+googleFonts
+https://fonts.googleapis.com
+https://fonts.gstatic.com     crossorigin
+https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap       stylesheet
+
+iconify
+https://code.iconify.design/3/3.1.0/iconify.min.js
+                                          
 
                                               <--Home Page-->
+Loving Homes
+A safe and comfortable hotel for your dog, equipped with everything your dog needs.
+A Place offering all the Facilities and all packages you need for your dog's care.
 
-
-
-
-
+btns
+Our Packages
+Our Facilities
                                               <--About us-->
-
-
-
-
+About us
+At Loving Homes, we offer a luxury dog hotel in the heart of Hong Kong,
+providing a safe and comfortable environment that ensures every guest enjoys care and happiness. 
+We provide a full range of modern facilities, including a grooming parlour and spa, rooms with underfloor heating,
+cooling, and TV, a chauffeur ‘collect and return’
+service, secure outdoor and indoor play areas, and 24-hour on-call veterinary care.
+We also offer personalized packages such as Premium, Classic, and Day, which include daily walks, fun activities,
+and special care tailored to each dog’s needs.
                                             <--Facilities Page-->
+card1
+Grooming Parlour and Spa
 
+Our grooming parlour and spa provides relaxing treatments, gentle care, and premium comfort to keep every dog clean, refreshed, healthy, and confidently happy.
 
+card2
 
+Rooms with Underfloor Heating/Cooling and TV
 
+Our rooms feature underfloor heating, cooling, and a personal TV, creating a comfortable, calming environment designed to support each dog’s unique needs and wellbeing.
+
+card3
+
+Chauffeur ‘Collect and Return’ Service
+
+Our chauffeur service offers safe collection and return, providing convenient transportation, professional handling, and a comfortable travel experience for every dog we serve.
+
+card4
+
+Secure Outdoor Paddocks
+
+Our secure outdoor paddocks offer safe areas for dogs to run freely, play confidently, explore comfortably, and enjoy supervised exercise in a protected environment.
+
+card5
+
+24-Hour On-Call Veterinary Services
+
+Our 24-hour on-call veterinary service provides immediate medical support, ensuring every dog receives professional, reliable care and continuous health protection at any time.
+
+card6
+
+Other Facilities
+
+Our other facilities include pet watch monitoring, peaceful woodland walks, private grassy areas, and an indoor play barn offering enriching activities for all dogs.
 
                                              <--Packages Page-->
+card1
+Premium Package
 
+Our Premium package includes four daily activities, private grass access, personalized treats, and daily photo updates, offering exceptional comfort, engagement, and luxury care.
 
+card2
+Classic Package
 
+Our Classic package provides three daily activities, indoor play barn access, a calming zen zone, and a grooming session, delivering balanced comfort and enjoyable daily enrichment.
+card3
 
+Day Package
 
+Our Day package offers two daily walks, an external play area, an agility track, and a sand-digging pit, creating energetic, fun, stimulating experiences.
 
+card4
+Custom Package
 
-                                              <--Contact us-->
+Our Custom package is tailored for extended stays or special requirements, offering flexible options carefully designed after direct consultation to meet each dog’s needs.
 
+                                            
+                                                <--footer-->
+About info
+An ideal hotel in Hong Kong that provides everything your dog needs and offers ideal packages and numerous facilities to cover all your dog's needs.
 
-
-
+social links
+instagram  
+https://www.instagram.com/barkbox/
+Facebook
+https://www.facebook.com/BarkBox/
+LinkedIn
+https://www.linkedin.com/company/bark-co/
+Twitter
+https://x.com/barkbox
+copyright
+© 2025 Loving Homes   |   All rights reserved.
 
